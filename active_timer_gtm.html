@@ -1,0 +1,6 @@
+<script>
+// Nastavení času v sekundách
+var timeLimit = 7;
+
+function isPageHidden(){return document.hidden||document.msHidden||document.webkitHidden||document.mozHidden}var hidden,visibilityChange,isPageHidden=isPageHidden();void 0!==document.hidden?(hidden="hidden",visibilityChange="visibilitychange"):void 0!==document.msHidden?(hidden="msHidden",visibilityChange="msvisibilitychange"):void 0!==document.webkitHidden&&(hidden="webkitHidden",visibilityChange="webkitvisibilitychange");var headline=document.getElementById("headline");if(document[hidden])var isPaused=!0;else isPaused=!1;var time=0,t=window.setInterval(function(){isPaused||++time==timeLimit&&dataLayer.push({event:"timeIsUp",timerVersion:"Active window timer"})},1e3);function handleVisibilityChange(){isPaused=!!document[hidden]}void 0===document.addEventListener||void 0===hidden?dataLayer.push({event:"pageVisibilityNotSupported",timerVersion:"Default GTM timer"}):document.addEventListener(visibilityChange,handleVisibilityChange,!1);
+</script>
